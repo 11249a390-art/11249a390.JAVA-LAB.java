@@ -132,7 +132,7 @@ Output :
 files uploaded seperately
 
 
-
+PRACTICE QUESTION :
 
  Add a JCheckBox for 'Hostel required' and include it in the output line.
 
