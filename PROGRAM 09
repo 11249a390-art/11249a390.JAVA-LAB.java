@@ -136,7 +136,57 @@ files uploaded seperately
 
  Add a JCheckBox for 'Hostel required' and include it in the output line.
 
+import javax.swing.*;
+import java.awt.*;
 
+public class RegisterForm {
+    public static void main(String[] args) {
+        JFrame f = new JFrame("Student Registration");
+        f.setLayout(new FlowLayout());
+
+        JTextField name = new JTextField(14);
+
+        JComboBox<String> br = new JComboBox<>(
+            new String[]{"CSE", "IT", "ECE"});
+
+        JRadioButton m = new JRadioButton("Male", true);
+        JRadioButton fe = new JRadioButton("Female");
+
+        ButtonGroup bg = new ButtonGroup();
+        bg.add(m);
+        bg.add(fe);
+
+        JCheckBox hostel = new JCheckBox("Hostel required");
+
+        JButton submit = new JButton("Submit");
+
+        JLabel result = new JLabel(" ");
+
+        f.add(new JLabel("Name:"));
+        f.add(name);
+        f.add(new JLabel("Branch:"));
+        f.add(br);
+        f.add(m);
+        f.add(fe);
+        f.add(hostel);
+        f.add(submit);
+        f.add(result);
+
+        submit.addActionListener(e -> {
+            String gender = m.isSelected() ? "Male" : "Female";
+            String h = hostel.isSelected() ? "Yes" : "No";
+
+            result.setText("Name: " + name.getText()
+                + ", Branch: " + br.getSelectedItem()
+                + ", Gender: " + gender
+                + ", Hostel Required: " + h);
+        });
+
+        f.setSize(400, 250);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setVisible(true);
+    }
+}
 
 
 
